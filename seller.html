@@ -19,50 +19,74 @@
         }
         nav {
             background-color: #333;
-            overflow: hidden;
             display: flex;
-            justify-content: center;
+            padding: 10px 20px;
+            align-items: center;
         }
-        nav a {
-            padding: 14px 20px;
-            display: block;
+        nav a, nav button {
             color: white;
             text-decoration: none;
-            text-align: center;
+            margin: 0 10px;
+            padding: 8px 15px;
+            background-color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
         }
-        nav a:hover {
+        nav a:hover, nav button:hover {
+            background-color: #333;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            text-decoration: none;
+        }
+        .dropdown-content a:hover {
             background-color: #575757;
         }
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        section {
             padding: 20px;
-            background-color: white;
+            max-width: 1200px;
+            margin: auto;
+            background-color: rgba(255,255, 255, 0.5);
+            margin-bottom: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        section {
+        h2 {
+            border-bottom: 2px solid #4CAF50;
+            color: #4CAF50;
+            padding-bottom: 5px;
             margin-bottom: 20px;
         }
-        h2 {
-            color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .input-group {
-            margin-bottom: 15px;
+        .about-container img {
+            max-width: 40%;
+            border-radius: 8px;
         }
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .input-group input, .input-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        .about-container div {
+            max-width: 55%;
         }
         table {
             width: 100%;
@@ -78,6 +102,13 @@
             background-color: #4CAF50;
             color: white;
         }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
         .button {
             background-color: #4CAF50;
             color: white;
@@ -89,143 +120,170 @@
         .button:hover {
             background-color: #45a049;
         }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Seller Dashboard - Agrolink</h1>
-    <p>Manage your products, orders, and more!</p>
 </header>
 
+<!-- Navbar -->
 <nav>
     <a href="#about">About Us</a>
-    <a href="#contact">Contact Us</a>
-    <a href="#buy-products">Buy Products</a>
-    <a href="#crop-health">Know Your Crop Health</a>
-    <a href="#faqs">FAQs</a>
+    <div class="dropdown">
+        <button>Buy Products</button>
+        <div class="dropdown-content">
+            <a href="#">fertilizers</a>
+            <a href="#">pest remover</a>
+            <a href="#">seeds</a>
+            <a href="#">Mechanical Tools</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button>Know Your Crop Health</button>
+        <div class="dropdown-content">
+            <a href="#">Pests & Diseases</a>
+            <a href="#">Soil Health</a>
+            <a href="#">Crop Care Tips</a>
+        </div>
+    </div>
     <a href="#order-summary">Order Summary</a>
+    <a href="#faqs">FAQs</a>
 </nav>
 
-<div class="container">
+<!-- About Us Section -->
+<section id="about">
+    <h2>About Us</h2>
+    <div class="about-container">
+        <div>
+        <h3>Welcome to AgroLink</h3>
+            <p>At Agrolink, we understand the hard work and dedication it takes to cultivate the food that nourishes families everywhere. That’s why we’ve built a platform specifically designed to empower farmers like you—helping you take control of your sales, connect with buyers directly, and grow your business without middlemen cutting into your earnings.</p>
+            <p>When you partner with Agrolink, you join a growing community of farmers committed to making agriculture more profitable and sustainable. Together, we’re creating a future where farmers thrive, local produce is celebrated, and customers appreciate the value of your hard work. </p><p><b>Let’s grow together. Sign up with Agrolink today and take the next step in transforming your farming business!</b></p>
+        </div>
+        <img src="farmers.webp" alt="Farmer Image">
+    </div>
+</section>
 
-    <!-- About Us -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Welcome to Agrolink! We connect farmers and buyers to create a sustainable agricultural ecosystem. Our platform empowers sellers like you to reach more customers and maximize your productivity.</p>
-    </section>
+<!-- Product Management Section -->
+<section id="add-products">
+    <h2>Manage Your Products</h2>
+    <form id="product-form" onsubmit="addProduct(event)">
+        <div class="input-group">
+            <label for="product-name">Product Name</label>
+            <input type="text" id="product-name" placeholder="Enter product name" required>
+        </div>
+        <div class="input-group">
+            <label for="product-price">Price per kg (in ₹)</label>
+            <input type="number" id="product-price" placeholder="Enter price" required>
+        </div>
+        <div class="input-group">
+            <label for="product-quantity">Available Quantity (in kg)</label>
+            <input type="number" id="product-quantity" placeholder="Enter quantity" required>
+        </div>
+        <button type="submit" class="button">Add Product</button>
+    </form>
 
-    <!-- Contact Us -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: support@agrolink.com</p>
-        <p>Phone: +1 123-456-7890</p>
-    </section>
+    <h3>Your Products</h3>
+    <table id="product-table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price (per kg)</th>
+                <th>Quantity (kg)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Products added by the seller will appear here -->
+        </tbody>
+    </table>
+</section>
 
-    <!-- Buy Products -->
-    <section id="buy-products">
-        <h2>Buy Products</h2>
-        <p>To explore products from other sellers, visit our <a href="/buyer.html">Buyer's Page</a>.</p>
-    </section>
+<!-- Order Summary Section -->
+<section id="order-summary">
+    <h2>Order Summary</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Deadline</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>Tomatoes</td>
+                <td>10 kg</td>
+                <td>25th November 2024</td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>Potatoes</td>
+                <td>20 kg</td>
+                <td>26th November 2024</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
-    <!-- Know Your Crop Health -->
-    <section id="crop-health">
-        <h2>Know Your Crop Health</h2>
-        <p>Learn about crop diseases, prevention methods, and healthy farming practices. Stay tuned for upcoming features!</p>
-    </section>
+<!-- FAQs Section -->
+<section id="faqs">
+    <h2>FAQs</h2>
+    <p><strong>Q: How do I add a product?</strong></p><p> A:Use the product form in your dashboard to add your items.</p>
+    <p><strong>Q: How do I track orders?</strong></p><p> Check the "Order Summary" section to view order details.</p>
+    <p><strong>Q: How do I manage my orders?</strong></p><p>
+A: All your orders are displayed in the "Order Summary" section of your dashboard. Here, you can see the buyer's name, product details, quantity ordered, and the delivery deadline.</p>
 
-    <!-- FAQs -->
-    <section id="faqs">
-        <h2>FAQs</h2>
-        <p><strong>How do I add a product?</strong> Fill out the product form below and click "Add Product".</p>
-        <p><strong>How do I view my orders?</strong> Check the "Order Summary" section below.</p>
-    </section>
+<p><strong>Q: Can I update the price or quantity of a product?</strong></p><p>
+A: Yes, you can edit the details of any product from the "Manage Your Products" section. Simply locate the product you want to update, make changes, and save them.
 
-    <!-- Order Summary -->
-    <section id="order-summary">
-        <h2>Order Summary</h2>
-        <table id="order-table">
-            <thead>
-                <tr>
-                    <th>Customer Name</th>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Deadline</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Sample orders -->
-                <tr>
-                    <td>John Doe</td>
-                    <td>Tomatoes</td>
-                    <td>10 kg</td>
-                    <td>25th November 2024</td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>Potatoes</td>
-                    <td>20 kg</td>
-                    <td>26th November 2024</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+<p><strong>Q: How do I know if someone has placed an order?</strong></p><p>
+A: You will receive a notification on your dashboard whenever a buyer places an order. The order details will be visible in your "Order Summary" section.</p>
 
-    <!-- Add Products -->
-    <section id="add-products">
-        <h2>Add Products</h2>
-        <form id="product-form" onsubmit="addProduct(event)">
-            <div class="input-group">
-                <label for="product-name">Product Name</label>
-                <input type="text" id="product-name" placeholder="Enter product name" required>
-            </div>
-            <div class="input-group">
-                <label for="product-price">Price per kg (in $)</label>
-                <input type="number" id="product-price" placeholder="Enter price" required>
-            </div>
-            <div class="input-group">
-                <label for="product-quantity">Available Quantity (in kg)</label>
-                <input type="number" id="product-quantity" placeholder="Enter quantity" required>
-            </div>
-            <button type="submit" class="button">Add Product</button>
-        </form>
+<p><strong>Q: What should I do if I can’t fulfill an order?</strong></p><p>
+A: If you cannot fulfill an order, please contact the buyer directly using the information provided in the order summary. Transparency helps maintain trust and build good relationships with buyers.</p>
 
-        <h3>Current Products</h3>
-        <table id="product-table">
-            <thead>
-                <tr>
-                    <th>Product Name</th>
-                    <th>Price (per kg)</th>
-                    <th>Quantity (kg)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Products added by the seller will appear here -->
-            </tbody>
-        </table>
-    </section>
+<p><strong>Q: Can I sell multiple types of products?</strong></p><p>
+A: Yes, you can list as many products as you want, including fruits, vegetables, dairy products, and more. Each product can have its own price and quantity.</p>
+</section>
 
-</div>
+<!-- Footer -->
+<footer>
+    <p>Contact Us: support@agrolink.com | Phone: +1 123-456-7890</p>
+    <p>&copy; 2024 Agrolink. All rights reserved.</p>
+</footer>
 
 <script>
-    // Add product to the product table
     function addProduct(event) {
         event.preventDefault();
         const productName = document.getElementById('product-name').value;
         const productPrice = document.getElementById('product-price').value;
         const productQuantity = document.getElementById('product-quantity').value;
 
-        // Add the product to the table
         const table = document.getElementById('product-table').querySelector('tbody');
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
             <td>${productName}</td>
-            <td>$${productPrice}</td>
+            <td>₹${productPrice}</td>
             <td>${productQuantity} kg</td>
         `;
         table.appendChild(newRow);
 
-        // Clear the form
         document.getElementById('product-form').reset();
     }
 </script>
