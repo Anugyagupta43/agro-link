@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Dashboard - AgroLink</title>
+  <link rel="stylesheet" href="dashstyle.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar (same as index.html) -->
+  <header class="navbar">
+    <div class="logo">Agro<span>Link</span></div>
+    <nav>
+      <a href="#" class="nav-link">
+        <i class="fas fa-user"></i>User
+      </a>
+      <a href="dashboard.html" class="nav-link active">
+        <i class="fas fa-store"></i>Seller
+      </a>
+      <a href="#" class="nav-link cart">
+        <i class="fas fa-shopping-cart"></i>Cart
+      </a>
+    </nav>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <nav>
+      <ul>
+        <li><a href="#products"><i class="fas fa-cogs"></i> Your Products</a></li>
+        <li><a href="#orders"><i class="fas fa-box"></i> Your Orders</a></li>
+        <li><a href="#faqs"><i class="fas fa-question-circle"></i> Your FAQs</a></li>
+      </ul>
+    </nav>
+    <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h1>Your Products</h1>
+
+    <!-- Product Details Section -->
+    <div class="product-card">
+      <img src="rice.webp" alt="Rice">
+      <div class="product-info">
+        <h3>Rice</h3>
+        <p><strong>Description:</strong> High-quality rice sourced from organic farms.</p>
+        <p><strong>Price:</strong> <p>Cost: &#8377 20;</p></p>
+        <p><strong>Stock:</strong> 120 units available</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="nuts.webp" alt="Nuts">
+      <div class="product-info">
+        <h3>Nuts</h3>
+        <p><strong>Description:</strong> Fresh nuts for all your needs.</p>
+        <p><strong>Price:</strong> <p>Cost: &#8377 100;</p></p>
+        <p><strong>Stock:</strong> 80 units available</p>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="sugar.webp" alt="Sugar">
+      <div class="product-info">
+        <h3>Sugar</h3>
+        <p><strong>Description:</strong> Sugar, perfect for a healthy diet.</p>
+        <p><strong>Price:</strong> <p>Cost: &#8377 25;</p></p>
+        <p><strong>Stock:</strong> 150 units available</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

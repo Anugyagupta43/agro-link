@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrolink - Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-header h2 {
+            color: #4CAF50;
+        }
+        .role-selection {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .btn {
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .guest-btn {
+            padding: 12px 24px;
+            background-color: #ccc;
+            color: #333;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+        }
+        .guest-btn:hover {
+            background-color: #b0b0b0;
+        }
+        .form-wrapper {
+            display: none; /* Initially hide the forms */
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .button {
+            width: 100%;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Agrolink - Sign Up</h1>
+    <p>Connecting farmers and buyers for fresh produce</p>
+</header>
+
+<div class="container">
+    <div class="form-header">
+        <h2>Welcome to Agrolink</h2>
+        <p>Please select your role to continue:</p>
+    </div>
+
+    <!-- Role selection buttons -->
+    <div class="role-selection">
+        <button class="btn" onclick="showForm('buyer')">Sign Up as Buyer</button>
+        <button class="btn" onclick="showForm('seller')">Sign Up as Seller</button>
+        <button class="guest-btn" onclick="continueAsGuest()">Continue as Guest</button>
+    </div>
+
+    <!-- Buyer Form -->
+    <div id="buyer-form" class="form-wrapper">
+        <h3>Sign Up as a Buyer</h3>
+        <form onsubmit="registerUser(event, 'buyer')">
+            <div class="input-group">
+                <label for="buyer-name">Full Name</label>
+                <input type="text" id="buyer-name" name="buyer-name" required placeholder="Enter your full name">
+            </div>
+            <div class="input-group">
+                <label for="buyer-email">Email</label>
+                <input type="email" id="buyer-email" name="buyer-email" required placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label for="buyer-password">Password</label>
+                <input type="password" id="buyer-password" name="buyer-password" required placeholder="Create a password">
+            </div>
+            <button type="submit" class="button">Sign Up as Buyer</button>
+        </form>
+    </div>
+
+    <!-- Seller Form -->
+    <div id="seller-form" class="form-wrapper">
+        <h3>Sign Up as a Seller (Farmer)</h3>
+        <form onsubmit="registerUser(event, 'seller')">
+            <div class="input-group">
+                <label for="seller-name">Full Name</label>
+                <input type="text" id="seller-name" name="seller-name" required placeholder="Enter your full name">
+            </div>
+            <div class="input-group">
+                <label for="seller-email">Email</label>
+                <input type="email" id="seller-email" name="seller-email" required placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label for="seller-password">Password</label>
+                <input type="password" id="seller-password" name="seller-password" required placeholder="Create a password">
+            </div>
+            <div class="input-group">
+                <label for="seller-phone">Phone Number</label>
+                <input type="tel" id="seller-phone" name="seller-phone" required placeholder="Enter your phone number">
+            </div>
+            <div class="input-group">
+                <label for="farm-location">Farm Location</label>
+                <input type="text" id="farm-location" name="farm-location" required placeholder="Enter farm location">
+            </div>
+            <button type="submit" class="button">Sign Up as Seller</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Function to display the correct form based on user selection
+    function showForm(role) {
+        // Hide both forms initially
+        document.getElementById('buyer-form').style.display = 'none';
+        document.getElementById('seller-form').style.display = 'none';
+        
+        // Show the selected form
+        if (role === 'buyer') {
+            document.getElementById('buyer-form').style.display = 'block';
+        } else if (role === 'seller') {
+            document.getElementById('seller-form').style.display = 'block';
+        }
+    }
+
+    // Redirect based on role
+    function registerUser(event, role) {
+        event.preventDefault();
+        let name;
+
+        if (role === 'buyer') {
+            name = document.getElementById('buyer-name').value;
+            window.location.href = `buyer.html?name=${encodeURIComponent(name)}`;
+        } else if (role === 'seller') {
+            name = document.getElementById('seller-name').value;
+            window.location.href = `seller.html?name=${encodeURIComponent(name)}`;
+        }
+    }
+
+    // Guest redirect
+    function continueAsGuest() {
+        window.location.href = 'index.html';
+    }
+</script>
+
+</body>
+</html>

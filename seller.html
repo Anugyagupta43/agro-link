@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard - Agrolink</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            padding: 14px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Seller Dashboard - Agrolink</h1>
+    <p>Manage your products, orders, and more!</p>
+</header>
+
+<nav>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#buy-products">Buy Products</a>
+    <a href="#crop-health">Know Your Crop Health</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#order-summary">Order Summary</a>
+</nav>
+
+<div class="container">
+
+    <!-- About Us -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Welcome to Agrolink! We connect farmers and buyers to create a sustainable agricultural ecosystem. Our platform empowers sellers like you to reach more customers and maximize your productivity.</p>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@agrolink.com</p>
+        <p>Phone: +1 123-456-7890</p>
+    </section>
+
+    <!-- Buy Products -->
+    <section id="buy-products">
+        <h2>Buy Products</h2>
+        <p>To explore products from other sellers, visit our <a href="/buyer.html">Buyer's Page</a>.</p>
+    </section>
+
+    <!-- Know Your Crop Health -->
+    <section id="crop-health">
+        <h2>Know Your Crop Health</h2>
+        <p>Learn about crop diseases, prevention methods, and healthy farming practices. Stay tuned for upcoming features!</p>
+    </section>
+
+    <!-- FAQs -->
+    <section id="faqs">
+        <h2>FAQs</h2>
+        <p><strong>How do I add a product?</strong> Fill out the product form below and click "Add Product".</p>
+        <p><strong>How do I view my orders?</strong> Check the "Order Summary" section below.</p>
+    </section>
+
+    <!-- Order Summary -->
+    <section id="order-summary">
+        <h2>Order Summary</h2>
+        <table id="order-table">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Deadline</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample orders -->
+                <tr>
+                    <td>John Doe</td>
+                    <td>Tomatoes</td>
+                    <td>10 kg</td>
+                    <td>25th November 2024</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>Potatoes</td>
+                    <td>20 kg</td>
+                    <td>26th November 2024</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Add Products -->
+    <section id="add-products">
+        <h2>Add Products</h2>
+        <form id="product-form" onsubmit="addProduct(event)">
+            <div class="input-group">
+                <label for="product-name">Product Name</label>
+                <input type="text" id="product-name" placeholder="Enter product name" required>
+            </div>
+            <div class="input-group">
+                <label for="product-price">Price per kg (in $)</label>
+                <input type="number" id="product-price" placeholder="Enter price" required>
+            </div>
+            <div class="input-group">
+                <label for="product-quantity">Available Quantity (in kg)</label>
+                <input type="number" id="product-quantity" placeholder="Enter quantity" required>
+            </div>
+            <button type="submit" class="button">Add Product</button>
+        </form>
+
+        <h3>Current Products</h3>
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Price (per kg)</th>
+                    <th>Quantity (kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Products added by the seller will appear here -->
+            </tbody>
+        </table>
+    </section>
+
+</div>
+
+<script>
+    // Add product to the product table
+    function addProduct(event) {
+        event.preventDefault();
+        const productName = document.getElementById('product-name').value;
+        const productPrice = document.getElementById('product-price').value;
+        const productQuantity = document.getElementById('product-quantity').value;
+
+        // Add the product to the table
+        const table = document.getElementById('product-table').querySelector('tbody');
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${productName}</td>
+            <td>$${productPrice}</td>
+            <td>${productQuantity} kg</td>
+        `;
+        table.appendChild(newRow);
+
+        // Clear the form
+        document.getElementById('product-form').reset();
+    }
+</script>
+
+</body>
+</html>

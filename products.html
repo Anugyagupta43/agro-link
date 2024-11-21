@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agrolink</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>AGROLINK</h1>
+  </header>
+
+  <main>
+    <div class="products-container">
+      <h2>Available Products</h2>
+      <div class="product-list">
+        <!-- Product items -->
+        <div class="product" data-name="Apple" data-price="200">
+          <img src="apple.jpg" alt="Apple">
+          <h3>Apple</h3>
+          <p>Price: ₹100/kg</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Brinjal" data-price="50">
+          <img src="brinjal.jpg" alt="Brinjal">
+          <h3>Brinjal</h3>
+          <p>Price: ₹20/kg</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="Carrot" data-price="60">
+          <img src="carrot.png" alt="Carrot">
+          <h3>Carrot</h3>
+          <p>Price: ₹20/kg</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="guava" data-price="60">
+          <img src="guava.png" alt="guava">
+          <h3>Guava</h3>
+          <p>Price: ₹30/kg</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+                <div class="product" data-name="gourd" data-price="60">
+          <img src="gourd.png" alt="gourd">
+          <h3>gourd</h3>
+          <p>Price: ₹30/kg</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+                <div class="product" data-name="Onion" data-price="60">
+          <img src="Onion.png" alt="Onion">
+          <h3>Onion</h3>
+          <p>Price: ₹15/kg</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+            <div class="product" data-name="papaya" data-price="60">
+          <img src="papaya.png">
+          <h3>Papaya</h3>
+          <p>Price: ₹50/kg</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+          <div class="product" data-name="potato" data-price="60">
+          <img src="potato.png">
+          <h3>Potato</h3>
+          <p>Price: ₹10/kg</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="product" data-name="tomato" data-price="60">
+          <img src="tomato.png">
+          <h3>Tomato</h3>
+          <p>Price: ₹20/kg</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-container">
+      <h2>Your Cart</h2>
+      <div class="cart-items">
+        <p>Your cart is empty!</p>
+      </div>
+      <div class="cart-total">
+        <h3>Total: ₹<span id="total-price">0</span></h3>
+      </div>
+      <button class="checkout-btn" id="checkout-button">Proceed to Checkout</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2024 AGROLINK</p>
+  </footer>
+
+  <script src="product.js"></script>
+</body>
+</html>
