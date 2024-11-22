@@ -135,6 +135,50 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
+        /* FAQ Section Styling */
+
+.faq-section h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-question {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    text-align: left;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #3e8e41;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
     </style>
 </head>
 <body>
@@ -245,21 +289,26 @@
 <!-- FAQs Section -->
 <section id="faqs">
     <h2>FAQs</h2>
-    <p><strong>Q: How do I add a product?</strong></p><p> A:Use the product form in your dashboard to add your items.</p>
-    <p><strong>Q: How do I manage my orders?</strong></p><p>
-A: All your orders are displayed in the "Order Summary" section of your dashboard. Here, you can see the buyer's name, product details, quantity ordered, and the delivery deadline.</p>
-
-<p><strong>Q: Can I update the price or quantity of a product?</strong></p><p>
-A: Yes, you can edit the details of any product from the "Manage Your Products" section. Simply locate the product you want to update, make changes, and save them.
-
-<p><strong>Q: How do I know if someone has placed an order?</strong></p><p>
-A: You will receive a notification on your dashboard whenever a buyer places an order. The order details will be visible in your "Order Summary" section.</p>
-
-<p><strong>Q: What should I do if I can’t fulfill an order?</strong></p><p>
-A: If you cannot fulfill an order, please contact the buyer directly using the information provided in the order summary. Transparency helps maintain trust and build good relationships with buyers.</p>
-
-<p><strong>Q: Can I sell multiple types of products?</strong></p><p>
-A: Yes, you can list as many products as you want, including fruits, vegetables, dairy products, and more. Each product can have its own price and quantity.</p>
+    <div class="faq-section">
+    <div class="faq-item">
+        <button class="faq-question">What is Agrolink?</button>
+        <div class="faq-answer">
+            Agrolink is a platform that connects farmers and buyers, helping farmers sell their produce and buyers purchase fresh, high-quality crops directly.
+        </div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question">How can I sell my crops on Agrolink?</button>
+        <div class="faq-answer">
+            You can register as a seller on our platform, create a profile, and list your crops along with their prices and quantities.
+        </div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question">What payment options are available?</button>
+        <div class="faq-answer">
+            We offer multiple payment options, including online payment, bank transfer, and cash on delivery, depending on your preference.
+        </div>
+    </div>
+</div>
 </section>
 
 <!-- Footer -->
@@ -286,6 +335,22 @@ A: Yes, you can list as many products as you want, including fruits, vegetables,
 
         document.getElementById('product-form').reset();
     }
+    document.querySelectorAll('.faq-question').forEach((button) => {
+    button.addEventListener('click', () => {
+        const answer = button.nextElementSibling;
+
+        // Toggle the display property
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+        } else {
+            answer.style.display = 'block';
+        }
+
+        // Optionally, scroll to the answer
+        answer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
 </script>
 
 </body>
