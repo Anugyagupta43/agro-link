@@ -38,34 +38,34 @@ function logout() {
     window.location.href = "seller.html";
   }
  // script.js
-const slides = document.querySelectorAll('.slide');
-const sliderContainer = document.querySelector('.slider-container');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-let currentIndex = 0;
-const autoSlideInterval = 3000; // 3 seconds
+// const slides = document.querySelectorAll('.slide');
+// const sliderContainer = document.querySelector('.slider-container');
+// const prevButton = document.querySelector('.prev');
+// const nextButton = document.querySelector('.next');
+// let currentIndex = 0;
+// const autoSlideInterval = 3000; // 3 seconds
 
-function updateSlides() {
-  const offset = -currentIndex * 100;
-  sliderContainer.style.transform = `translateX(${offset}%)`;
-}
+// function updateSlides() {
+//   const offset = -currentIndex * 100;
+//   sliderContainer.style.transform = `translateX(${offset}%)`;
+// }
 
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % slides.length; // Cycle to next slide
-  updateSlides();
-}
+// function nextSlide() {
+//   currentIndex = (currentIndex + 1) % slides.length; // Cycle to next slide
+//   updateSlides();
+// }
 
-function prevSlide() {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Cycle to previous slide
-  updateSlides();
-}
+// function prevSlide() {
+//   currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Cycle to previous slide
+//   updateSlides();
+// }
 
-// Event listeners for manual controls
-prevButton.addEventListener('click', prevSlide);
-nextButton.addEventListener('click', nextSlide);
+// // Event listeners for manual controls
+// prevButton.addEventListener('click', prevSlide);
+// nextButton.addEventListener('click', nextSlide);
 
-// Auto-slide functionality
-setInterval(nextSlide, autoSlideInterval);
+// // Auto-slide functionality
+// setInterval(nextSlide, autoSlideInterval);
 
-// Initialize
-updateSlides();
+// // Initialize
+// updateSlides();

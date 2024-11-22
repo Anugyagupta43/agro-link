@@ -1,110 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgroLink</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="navbar">
-    <div class="logo">Agro<span>Link</span></div>
-    <nav>
-      <a href="products.html" class="nav-item nav-link">Products</a>
-     <a href="#reviews" class="nav-item nav-link">Reviews</a>
-      <a href="front.html" class="nav-link">
-        <i class="fas fa-user"></i>User
-      </a>
-      <a href="seller.html" class="nav-link">
-        <i class="fas fa-store"></i>Seller
-      </a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgroLink</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">Agro<span>Link</span></div>
+      <nav>
+        <a href="products.html" class="nav-item nav-link">Products</a>
+        <a href="#reviews" class="nav-item nav-link">Reviews</a>
+        <a href="front.html" class="nav-link">
+          <i class="fas fa-user"></i>User
+        </a>
+        <a href="seller.html" class="nav-link">
+          <i class="fas fa-store"></i>Seller
+        </a>
+      </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-          <h1>Agro<span>Link</span></h1>
-          <div class="connect-lines"></div>
-          <p>Connecting Farmers and Consumers - Bringing Fresh Produce to Your Doorstep!</p>
-        </div>
-      </section>
-      
-      
+      <div class="hero-content">
+        <h1>Agro<span>Link</span></h1>
+        <div class="connect-lines"></div>
+        <p>
+          Connecting Farmers and Consumers - Bringing Fresh Produce to Your
+          Doorstep!
+        </p>
+      </div>
+    </section>
 
-  <!-- Categories Section -->
-  <section class="categories">
-    <h2>Category</h2>
-    <div class="category-grid">
-      <div class="category-card" style="background-image: url('rice.webp');">
-        <span>Rice</span>
-      </div>
-      <div class="category-card" style="background-image: url('wheat.webp');">
-        <span>Wheat</span>
-      </div>
-      <div class="category-card" style="background-image: url('nuts.webp');">
-        <span>Nuts</span>
-      </div>
-      <div class="category-card" style="background-image: url('sugar.webp');">
-        <span>Sugar</span>
-      </div>
-      <div class="category-card" style="background-image: url('spices.webp');">
-        <span>Spices</span>
-      </div>
-      <div class="category-card" style="background-image: url('fruits.webp');">
-        <span>Fruits</span>
-      </div>
-      <div class="category-card" style="background-image: url('vegetables.webp');">
-        <span>Vegetables</span>
-      </div>
-      <div class="category-card" style="background-image: url('pulses.webp');">
-        <span>Pulses</span>
-      </div>
-    </div>
-  </section>
-<!--Review-->
-
-<main>
-    <div class="testimonial-wrapper" id="reviews">
-    <div class="testimonial-heading-container">
-        <h2 class="testimonial-heading">Reviews</h2>
-      </div>
-      <div class="testimonial-slider">
-        <div class="slider-container">
-          <div class="slide active">
-            <img src="https://in.bmscdn.com/iedb/artist/images/website/poster/large/kartik-aaryan-1045198-08-12-2017-06-34-11.jpg" class="testimonial-image">
-            <p>"This is the best service I've ever used!"</p>
-            <h4>- John Doe</h4>
-          </div>
-          <div class="slide">
-            <img src="profile2.jpg" alt="Jane Smith" class="testimonial-image">
-            <p>"Excellent support and amazing features."</p>
-            <h4>- Jane Smith</h4>
-          </div>
-          <div class="slide">
-            <img src="profile3.jpg" alt="Robert Brown" class="testimonial-image">
-            <p>"Highly recommend to anyone looking for quality."</p>
-            <h4>- Robert Brown</h4>
-          </div>
+    <!-- Categories Section -->
+    <section class="categories">
+      <h2>Category</h2>
+      <div class="category-grid">
+        <div class="category-card" style="background-image: url('rice.webp')">
+          <span>Rice</span>
         </div>
-        <div class="controls">
-          <button class="prev">‹</button>
-          <button class="next">›</button>
+        <div class="category-card" style="background-image: url('wheat.webp')">
+          <span>Wheat</span>
+        </div>
+        <div class="category-card" style="background-image: url('nuts.webp')">
+          <span>Nuts</span>
+        </div>
+        <div class="category-card" style="background-image: url('sugar.webp')">
+          <span>Sugar</span>
+        </div>
+        <div class="category-card" style="background-image: url('spices.webp')">
+          <span>Spices</span>
+        </div>
+        <div class="category-card" style="background-image: url('fruits.webp')">
+          <span>Fruits</span>
+        </div>
+        <div
+          class="category-card"
+          style="background-image: url('vegetables.webp')"
+        >
+          <span>Vegetables</span>
+        </div>
+        <div class="category-card" style="background-image: url('pulses.webp')">
+          <span>Pulses</span>
         </div>
       </div>
-    </div>
-  </main>
+    </section>
+    <!--Review-->
 
+    <main>
+      <div class="user-review">
+        <section class="review-section" id="reviews">
+          <h2 class="testimonial-heading">User Reviews</h2>
+          <div class="review-cards">
+            <div class="review-card">
+              <div class="col1">
+                <img src="pic1.jpg" class="review-image" alt="John Doe" />
+              </div>
+              <div class="col2">
+                <h3>John Doe</h3>
+                <p class="rating">⭐⭐⭐⭐⭐</p>
+                <p>
+                  "This is the best service I've ever used! The quality is
+                  top-notch, and the process is seamless."
+                </p>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="col1">
+                <img src="pic2.jpg" class="review-image" alt="Jane Smith" />
+              </div>
+              <div class="col2">
+                <h3>Jane Smith</h3>
+                <p class="rating">⭐⭐⭐⭐</p>
+                <p>
+                  "Excellent support and amazing features. Highly satisfied with
+                  the overall experience."
+                </p>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="col1">
+                <img src="pic3.jpg" class="review-image" alt="Robert Brown" />
+              </div>
+              <div class="col2">
+                <h3>Robert Brown</h3>
+                <p class="rating">⭐⭐⭐⭐⭐</p>
+                <p>
+                  "Highly recommend to anyone looking for premium quality and
+                  exceptional service."
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>Made by CodersKraft</p>
-    <div class="social-icons">
-      <a href="#" class="icon">GitHub</a>
-      <a href="#" class="icon">LinkedIn</a>
-      <a href="#" class="icon">Instagram</a>
-    </div>
-  </footer>
-  <script src="script.js"></script>
-</body>
+    <!-- Footer -->
+    <footer>
+      <p>Made with ❤️ by CodersKraft</p>
+      <div class="social-icons">
+        <a href="#" class="icon">GitHub</a>
+        <a href="#" class="icon">LinkedIn</a>
+        <a href="#" class="icon">Instagram</a>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
