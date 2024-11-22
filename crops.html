@@ -6,7 +6,7 @@
     <title>Agrolink - Crop Advisor</title>
     <style>
         /* Basic Reset and Font */
-* {
+        ** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -195,7 +195,6 @@ footer {
             <li><a href="#">Home</a></li>
             <li><a href="#advisor">Crop Advisor</a></li>
             <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#faq">FAQs</a></li>
         </ul>
     </nav>
 
@@ -212,38 +211,32 @@ footer {
         <div class="filters">
             <div class="filter-box">
                 <h3>Season</h3>
-                <img src="season.webp" alt="Season Image">
+                <img src="season.webp" alt="Season">
                 <select id="season">
                     <option value="summer">Summer</option>
                     <option value="winter">Winter</option>
-                    <option value="spring">Spring</option>
-                    <option value="autumn">Autumn</option>
                 </select>
             </div>
             <div class="filter-box">
                 <h3>Soil Type</h3>
-                <img src="soil.webp" alt="Soil Image">
+                <img src="soil.webp" alt="Soil">
                 <select id="soil">
-                    <option value="clay">Clay</option>
-                    <option value="sandy">Sandy</option>
                     <option value="loamy">Loamy</option>
-                    <option value="peaty">Peaty</option>
+                    <option value="clay">Clay</option>
                 </select>
             </div>
             <div class="filter-box">
                 <h3>State</h3>
-                <img src="states.webp" alt="State Image">
+                <img src="states.webp" alt="State">
                 <select id="state">
-                    <option value="punjab">Uttar Pradesh</option>
-                    <option value="maharashtra">Punnjab</option>
-                    <option value="kerala">Kerala</option>
-                    <option value="uttar_pradesh">Maharashtra</option>
+                    <option value="punjab">Punjab</option>
+                    <option value="uttar_pradesh">Uttar Pradesh</option>
                 </select>
             </div>
             <div class="filter-box">
                 <h3>Rainfall (mm)</h3>
-                <img src="rain-drop.webp" alt="Rainfall Image">
-                <input type="number" id="rainfall" placeholder="Enter Rainfall (mm)">
+                <img src="rain-drop.webp" alt="Rain">
+                <input type="number" id="rainfall" placeholder="Rainfall (mm)">
             </div>
         </div>
         <div class="filters">
@@ -262,17 +255,16 @@ footer {
             const season = document.getElementById("season").value;
             const soil = document.getElementById("soil").value;
             const state = document.getElementById("state").value;
-            const rainfall = parseInt(document.getElementById("rainfall").value);
+            const rainfall = parseInt(document.getElementById("rainfall").value) || 0;
 
             const results = document.getElementById("results");
-            results.innerHTML = ""; // Clear previous results
+            results.innerHTML = "";
 
-            // Determine suitable crops based on inputs
             if (season === "summer" && soil === "loamy" && state === "punjab" && rainfall > 500) {
                 results.innerHTML += `
                     <div class="result-box">
                         <h3>Rice</h3>
-                        <img src="rice.webp" alt="Rice Crop">
+                        <img src="rice.webp" alt="Rice">
                         <p>Rice thrives in loamy soil with high rainfall during summer in Punjab.</p>
                     </div>`;
             }
@@ -280,11 +272,10 @@ footer {
                 results.innerHTML += `
                     <div class="result-box">
                         <h3>Wheat</h3>
-                        <img src="wheat.webp" alt="Wheat Crop">
+                        <img src="wheat.webp" alt="Wheat">
                         <p>Wheat grows well in clay soil with moderate rainfall during winter in Uttar Pradesh.</p>
                     </div>`;
             }
-
             if (results.innerHTML === "") {
                 results.innerHTML = `<p>No crops match your criteria. Please adjust your filters.</p>`;
             }
