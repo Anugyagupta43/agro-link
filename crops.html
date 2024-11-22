@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrolink - Crop Advisor</title>
+    <style>
+        /* Basic Reset and Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F8F9FA;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Navbar */
+nav {
+    background-color: black;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+nav ul li a:hover {
+    color: #4CAF50;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #4CAF50;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+.hero img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Crop Advisor Section */
+.advisor-section {
+    padding: 50px 20px;
+}
+.advisor-section h2 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.filter-box {
+    flex: 1;
+    max-width: 300px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.filter-box img {
+    width: 100%;
+    height: 150px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensures image fits nicely without distortion */
+    border-radius: 5px;
+}
+.filter-box select, .filter-box input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.filter-box button {
+    background-color: #4CAF50; /* Theme green */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 30px; /* Rounded edges for a modern look */
+    transition: all 0.3s ease-in-out;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.filter-box button:hover {
+    background-color: #3e8e41; /* Darker green on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Results Section */
+.results {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+.result-box {
+    max-width: 300px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.result-box img {
+    width: 100%;
+    height: 150px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensures image fits nicely without distortion */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.filters button {
+    background-color: #4CAF50; /* Agrolink theme green */
+    color: white;
+    border: none;
+    padding: 15px 25px; /* Comfortable padding for a prominent button */
+    cursor: pointer;
+    border-radius: 25px; /* Rounded corners for a modern look */
+    font-size: 16px; /* Clear and readable font size */
+    font-weight: bold; /* Makes the text stand out */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px auto; /* Centers the button horizontally */
+    display: block; /* Makes the button block-level to center in its parent */
+    text-align: center; /* Ensures the text is centered */
+}
+
+.filters button:hover {
+    background-color: #3e8e41; /* Slightly darker green for hover effect */
+    transform: translateY(-3px); /* Subtle lift effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.filters button:active {
+    background-color: #367a39; /* Even darker green for active state */
+    transform: translateY(1px); /* Press-down effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow for active state */
+}
+
+
+/* Footer */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">Agrolink</div>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#advisor">Crop Advisor</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#faq">FAQs</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Agrolink's Crop Advisor</h1>
+        <p>Find the best crops to grow based on your location and resources.</p>
+        <img src="farmer.png" alt="Farming Landscape">
+    </section>
+
+    <!-- Crop Advisor Section -->
+    <section id="advisor" class="advisor-section">
+        <h2>Choose Your Preferences</h2>
+        <div class="filters">
+            <div class="filter-box">
+                <h3>Season</h3>
+                <img src="season.webp" alt="Season Image">
+                <select id="season">
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                    <option value="spring">Spring</option>
+                    <option value="autumn">Autumn</option>
+                </select>
+            </div>
+            <div class="filter-box">
+                <h3>Soil Type</h3>
+                <img src="soil.webp" alt="Soil Image">
+                <select id="soil">
+                    <option value="clay">Clay</option>
+                    <option value="sandy">Sandy</option>
+                    <option value="loamy">Loamy</option>
+                    <option value="peaty">Peaty</option>
+                </select>
+            </div>
+            <div class="filter-box">
+                <h3>State</h3>
+                <img src="states.webp" alt="State Image">
+                <select id="state">
+                    <option value="punjab">Uttar Pradesh</option>
+                    <option value="maharashtra">Punnjab</option>
+                    <option value="kerala">Kerala</option>
+                    <option value="uttar_pradesh">Maharashtra</option>
+                </select>
+            </div>
+            <div class="filter-box">
+                <h3>Rainfall (mm)</h3>
+                <img src="rain-drop.webp" alt="Rainfall Image">
+                <input type="number" id="rainfall" placeholder="Enter Rainfall (mm)">
+            </div>
+        </div>
+        <div class="filters">
+            <button onclick="showResults()">Find Suitable Crops</button>
+        </div>
+        <div class="results" id="results"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>Contact Us: support@agrolink.com | +123 456 7890</p>
+    </footer>
+
+    <script>
+        function showResults() {
+            const season = document.getElementById("season").value;
+            const soil = document.getElementById("soil").value;
+            const state = document.getElementById("state").value;
+            const rainfall = parseInt(document.getElementById("rainfall").value);
+
+            const results = document.getElementById("results");
+            results.innerHTML = ""; // Clear previous results
+
+            // Determine suitable crops based on inputs
+            if (season === "summer" && soil === "loamy" && state === "punjab" && rainfall > 500) {
+                results.innerHTML += `
+                    <div class="result-box">
+                        <h3>Rice</h3>
+                        <img src="rice.webp" alt="Rice Crop">
+                        <p>Rice thrives in loamy soil with high rainfall during summer in Punjab.</p>
+                    </div>`;
+            }
+            if (season === "winter" && soil === "clay" && state === "uttar_pradesh" && rainfall < 300) {
+                results.innerHTML += `
+                    <div class="result-box">
+                        <h3>Wheat</h3>
+                        <img src="wheat.webp" alt="Wheat Crop">
+                        <p>Wheat grows well in clay soil with moderate rainfall during winter in Uttar Pradesh.</p>
+                    </div>`;
+            }
+
+            if (results.innerHTML === "") {
+                results.innerHTML = `<p>No crops match your criteria. Please adjust your filters.</p>`;
+            }
+        }
+    </script>
+
+</body>
+</html>
